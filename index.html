@@ -6,222 +6,391 @@
 <title>Para Jeniffer ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+overflow:hidden;
 }
 
-/* FUNDO GRADIENTE ANIMADO */
-.gradient-bg {
-    background: linear-gradient(-45deg, #00f2fe, #4facfe, #6a85f1, #89f7fe);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
+/* FUNDO */
+
+.gradient-bg{
+background:linear-gradient(-45deg,#00f2fe,#4facfe,#6a85f1,#89f7fe);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
 }
 
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-/* TELA INICIAL */
-.intro {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px;
-    box-sizing: border-box;
-    color: white;
-    transition: opacity 0.8s ease;
+/* INTRO */
+
+.intro{
+position:fixed;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+box-sizing:border-box;
+color:white;
+transition:opacity .8s ease;
 }
 
-.intro.fade-out {
-    opacity: 0;
+.intro.fade-out{
+opacity:0;
 }
 
-.intro h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    animation: glow 2.5s ease-in-out infinite alternate;
+.intro h1{
+font-size:32px;
+margin-bottom:20px;
+animation:glow 2.5s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px #fff, 0 0 10px #4facfe; }
-    to { text-shadow: 0 0 15px #fff, 0 0 25px #00f2fe; }
+@keyframes glow{
+from{text-shadow:0 0 5px #fff,0 0 10px #4facfe;}
+to{text-shadow:0 0 20px #fff,0 0 35px #00f2fe;}
 }
 
-.intro p {
-    font-size: 18px;
-    max-width: 320px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.intro p{
+font-size:18px;
+max-width:320px;
+line-height:1.6;
+margin-bottom:30px;
 }
 
-.intro button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background: white;
-    color: #4facfe;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
+.intro button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:white;
+color:#4facfe;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
 }
 
 /* CARROSSEL */
-.carousel-container {
-    display: none;
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
+
+.carousel-container{
+display:none;
+position:relative;
+overflow:hidden;
+height:100vh;
 }
 
-.carousel-container.show {
-    display: block;
+.carousel-container.show{
+display:block;
 }
 
-.carousel {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease;
+.carousel{
+display:flex;
+width:100%;
+height:100%;
+transition:transform .6s ease;
 }
 
-.slide {
-    min-width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: white;
+.slide{
+width:100%;
+min-width:100%;
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+padding:20px;
+box-sizing:border-box;
+color:white;
 }
 
-.slide img {
-    width: 90%;
-    max-width: 350px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    margin-bottom: 20px;
+.slide img{
+width:80%;
+max-width:320px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+margin-bottom:20px;
+
+opacity:0;
+transform:scale(.9);
+transition:1s;
 }
 
-.slide p {
-    font-size: 20px;
-    max-width: 320px;
-    line-height: 1.5;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.slide.active img{
+opacity:1;
+transform:scale(1);
+}
+
+.slide p{
+font-size:20px;
+max-width:320px;
 }
 
 /* SETAS */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.7);
-    border: none;
-    font-size: 28px;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,255,255,.7);
+border:none;
+font-size:28px;
+padding:10px 15px;
+border-radius:50%;
+cursor:pointer;
+z-index:10;
 }
 
-.left { left: 15px; }
-.right { right: 15px; }
+.left{left:15px;}
+.right{right:15px;}
+
+/* CORAÇÕES SUBINDO */
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:floatUp 6s linear infinite;
+opacity:.8;
+z-index:1;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0) scale(.8);opacity:0;}
+10%{opacity:.8;}
+100%{transform:translateY(-120vh) scale(1.3);opacity:0;}
+}
+
+/* MENSAGEM FINAL */
+
+.big-message{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(.5);
+font-size:42px;
+font-weight:bold;
+color:white;
+text-align:center;
+opacity:0;
+transition:all 1s ease;
+z-index:9999;
+}
+
+.big-message.show{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+
+/* CORAÇÃO EXPLOSÃO */
+
+.explosion{
+position:fixed;
+font-size:26px;
+pointer-events:none;
+animation:explode 1.5s ease-out forwards;
+z-index:5000;
+}
+
+@keyframes explode{
+0%{
+transform:translate(0,0) scale(.5);
+opacity:1;
+}
+100%{
+transform:translate(var(--x),var(--y)) scale(1.5);
+opacity:0;
+}
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- TELA INICIAL -->
+<div class="big-message" id="loveMessage">
+Eu te amo Jeniffer 💙
+</div>
+
+<!-- INTRO -->
+
 <div class="intro gradient-bg" id="intro">
-    <h1>Jeniffer 💙</h1>
-    <p>
-        Hoje é Dia das Mulheres…<br><br>
-        Mas essa surpresa não é para qualquer mulher.<br><br>
-        É para a mulher que mudou a minha vida.
-    </p>
-    <button onclick="start()">Abrir minha surpresa ✨</button>
+
+<h1>Jeniffer 💙</h1>
+
+<p>
+Hoje é Dia das Mulheres…<br><br>
+Mas essa surpresa não é para qualquer mulher.<br><br>
+É para a mulher que mudou a minha vida.
+</p>
+
+<button onclick="start()">Abrir minha surpresa ✨</button>
+
 </div>
 
 <!-- CARROSSEL -->
+
 <div class="carousel-container gradient-bg" id="carouselContainer">
-    
-    <button class="arrow left" onclick="prevSlide()">❮</button>
-    <button class="arrow right" onclick="nextSlide()">❯</button>
 
-    <div class="carousel" id="carousel">
+<button class="arrow left" onclick="prevSlide()">❮</button>
+<button class="arrow right" onclick="nextSlide()">❯</button>
 
-        <div class="slide">
-            <img src="foto1.jpg">
-            <p>Você ilumina qualquer lugar só por existir ✨</p>
-        </div>
+<div class="carousel" id="carousel">
 
-        <div class="slide">
-            <img src="foto2.jpg">
-            <p>Com você, cada momento vira memória favorita 💙</p>
-        </div>
+<div class="slide active">
+<img src="foto1.jpg">
+<p>Com você, cada momento vira memória favorita 💙</p>
+</div>
 
-        <div class="slide">
-            <img src="foto3.jpg">
-            <p>Seu sorriso é o meu lugar seguro 🌸</p>
-        </div>
+<div class="slide">
+<img src="foto2.jpg">
+<p>Você ilumina qualquer lugar só por existir ✨</p>
+</div>
 
-        <div class="slide">
-            <img src="foto4.jpg">
-            <p>Feliz Dia das Mulheres, minha mulher incrível. Eu te amo 💜</p>
-        </div>
+<div class="slide">
+<img src="foto3.jpg">
+<p>Seu sorriso é o meu lugar seguro 🌸</p>
+</div>
 
-    </div>
+<div class="slide">
+<img src="foto4.jpg">
+<p>Feliz Dia das Mulheres, minha mulher incrível. Eu te amo ❤️</p>
+</div>
+
+</div>
 </div>
 
 <script>
-let currentSlide = 0;
-const carousel = document.getElementById("carousel");
-const slides = document.querySelectorAll(".slide");
 
-function updateSlide() {
-    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+let currentSlide=0
+let explosionTriggered=false
+
+const carousel=document.getElementById("carousel")
+const slides=document.querySelectorAll(".slide")
+const loveMessage=document.getElementById("loveMessage")
+
+function updateSlide(){
+
+carousel.style.transform=`translateX(-${currentSlide*100}%)`
+
+slides.forEach(s=>s.classList.remove("active"))
+slides[currentSlide].classList.add("active")
+
+if(currentSlide===slides.length-1 && !explosionTriggered){
+
+explosionTriggered=true
+triggerLoveExplosion()
+
 }
 
-function nextSlide() {
-    if (currentSlide < slides.length - 1) {
-        currentSlide++;
-        updateSlide();
-    }
 }
 
-function prevSlide() {
-    if (currentSlide > 0) {
-        currentSlide--;
-        updateSlide();
-    }
+function nextSlide(){
+
+if(currentSlide<slides.length-1){
+
+currentSlide++
+updateSlide()
+
 }
 
-function start() {
-    const intro = document.getElementById("intro");
-    const carouselContainer = document.getElementById("carouselContainer");
-
-    intro.classList.add("fade-out");
-
-    setTimeout(() => {
-        intro.style.display = "none";
-        carouselContainer.classList.add("show");
-        document.body.style.overflow = "hidden";
-    }, 800);
 }
+
+function prevSlide(){
+
+if(currentSlide>0){
+
+currentSlide--
+updateSlide()
+
+}
+
+}
+
+function start(){
+
+const intro=document.getElementById("intro")
+const carouselContainer=document.getElementById("carouselContainer")
+
+intro.classList.add("fade-out")
+
+setTimeout(()=>{
+
+intro.style.display="none"
+carouselContainer.classList.add("show")
+document.body.style.overflow="hidden"
+
+createHearts()
+
+},800)
+
+}
+
+/* CORAÇÕES SUBINDO */
+
+function createHearts(){
+
+setInterval(()=>{
+
+const heart=document.createElement("div")
+
+heart.className="heart"
+heart.innerHTML="💖"
+
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(20+Math.random()*20)+"px"
+heart.style.animationDuration=(4+Math.random()*4)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),6000)
+
+},500)
+
+}
+
+/* EXPLOSÃO */
+
+function triggerLoveExplosion(){
+
+loveMessage.classList.add("show")
+
+for(let i=0;i<40;i++){
+
+const heart=document.createElement("div")
+
+heart.className="explosion"
+heart.innerHTML="💖"
+
+heart.style.left="50vw"
+heart.style.top="50vh"
+
+const angle=Math.random()*360
+const distance=200+Math.random()*200
+
+const x=Math.cos(angle)*distance
+const y=Math.sin(angle)*distance
+
+heart.style.setProperty("--x",x+"px")
+heart.style.setProperty("--y",y+"px")
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),1500)
+
+}
+
+}
+
 </script>
 
 </body>
