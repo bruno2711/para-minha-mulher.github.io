@@ -45,7 +45,6 @@ body {
     opacity: 0;
 }
 
-/* NOME COM BRILHO */
 .intro h1 {
     font-size: 32px;
     margin-bottom: 20px;
@@ -74,38 +73,31 @@ body {
     color: #4facfe;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
 }
 
 /* CARROSSEL */
 .carousel-container {
     display: none;
-    opacity: 0;
-    transition: opacity 1s ease;
+    position: relative;
+    overflow: hidden;
     height: 100vh;
 }
 
 .carousel-container.show {
     display: block;
-    opacity: 1;
 }
 
 .carousel {
     display: flex;
-    height: 100vh;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-
-.carousel::-webkit-scrollbar {
-    display: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
 }
 
 .slide {
-    flex: 0 0 100%;
+    min-width: 100%;
     height: 100vh;
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,6 +122,24 @@ body {
     line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+
+/* SETAS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 28px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left { left: 15px; }
+.right { right: 15px; }
+
 </style>
 </head>
 
@@ -148,7 +158,11 @@ body {
 
 <!-- CARROSSEL -->
 <div class="carousel-container gradient-bg" id="carouselContainer">
-    <div class="carousel">
+    
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+
+    <div class="carousel" id="carousel">
 
         <div class="slide">
             <img src="foto1.jpg">
@@ -174,6 +188,28 @@ body {
 </div>
 
 <script>
+let currentSlide = 0;
+const carousel = document.getElementById("carousel");
+const slides = document.querySelectorAll(".slide");
+
+function updateSlide() {
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+    }
+}
+
 function start() {
     const intro = document.getElementById("intro");
     const carouselContainer = document.getElementById("carouselContainer");
@@ -183,7 +219,7 @@ function start() {
     setTimeout(() => {
         intro.style.display = "none";
         carouselContainer.classList.add("show");
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "hidden";
     }, 800);
 }
 </script>
