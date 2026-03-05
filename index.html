@@ -8,21 +8,104 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
     overflow: hidden;
+}
+
+/* FUNDO GRADIENTE ANIMADO */
+.gradient-bg {
+    background: linear-gradient(-45deg, #00f2fe, #4facfe, #6a85f1, #89f7fe);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TELA INICIAL */
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    color: white;
+    transition: opacity 0.8s ease;
+}
+
+.intro.fade-out {
+    opacity: 0;
+}
+
+/* NOME COM BRILHO */
+.intro h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #4facfe; }
+    to { text-shadow: 0 0 15px #fff, 0 0 25px #00f2fe; }
+}
+
+.intro p {
+    font-size: 18px;
+    max-width: 320px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.intro button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #4facfe;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* CARROSSEL */
+.carousel-container {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    height: 100vh;
+}
+
+.carousel-container.show {
+    display: block;
+    opacity: 1;
 }
 
 .carousel {
     display: flex;
-    width: 400%;
     height: 100vh;
-    transition: transform 0.4s ease-in-out;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .slide {
-    width: 100%;
-    flex-shrink: 0;
+    flex: 0 0 100%;
+    height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,110 +117,74 @@ body {
 }
 
 .slide img {
-    width: 85%;
+    width: 90%;
     max-width: 350px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     margin-bottom: 20px;
 }
 
 .slide p {
     font-size: 20px;
-    max-width: 300px;
+    max-width: 320px;
     line-height: 1.5;
-}
-
-.dots {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.5;
-}
-
-.active {
-    opacity: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 </style>
 </head>
 
 <body>
 
-<div class="carousel" id="carousel">
-    <div class="slide">
-        <img src="foto1.jpg">
-        <p>Jeniffer, você ilumina qualquer lugar só por existir ✨</p>
-    </div>
-
-    <div class="slide">
-        <img src="foto2.jpg">
-        <p>Com você, cada momento vira memória favorita ❤️</p>
-    </div>
-
-    <div class="slide">
-        <img src="foto3.jpg">
-        <p>Seu sorriso é o meu lugar seguro 🌸</p>
-    </div>
-
-    <div class="slide">
-        <img src="foto4.jpg">
-        <p>Feliz Dia das Mulheres, minha mulher incrível. Eu te amo 💜</p>
-    </div>
+<!-- TELA INICIAL -->
+<div class="intro gradient-bg" id="intro">
+    <h1>Jeniffer 💙</h1>
+    <p>
+        Hoje é Dia das Mulheres…<br><br>
+        Mas essa surpresa não é para qualquer mulher.<br><br>
+        É para a mulher que mudou a minha vida.
+    </p>
+    <button onclick="start()">Abrir minha surpresa ✨</button>
 </div>
 
-<div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+<!-- CARROSSEL -->
+<div class="carousel-container gradient-bg" id="carouselContainer">
+    <div class="carousel">
+
+        <div class="slide">
+            <img src="foto1.jpg">
+            <p>Você ilumina qualquer lugar só por existir ✨</p>
+        </div>
+
+        <div class="slide">
+            <img src="foto2.jpg">
+            <p>Com você, cada momento vira memória favorita 💙</p>
+        </div>
+
+        <div class="slide">
+            <img src="foto3.jpg">
+            <p>Seu sorriso é o meu lugar seguro 🌸</p>
+        </div>
+
+        <div class="slide">
+            <img src="foto4.jpg">
+            <p>Feliz Dia das Mulheres, minha mulher incrível. Eu te amo 💜</p>
+        </div>
+
+    </div>
 </div>
 
 <script>
-let currentIndex = 0;
-const carousel = document.getElementById('carousel');
-const dots = document.querySelectorAll('.dot');
-let startX = 0;
+function start() {
+    const intro = document.getElementById("intro");
+    const carouselContainer = document.getElementById("carouselContainer");
 
-document.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-});
+    intro.classList.add("fade-out");
 
-document.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) {
-        nextSlide();
-    } else if (endX - startX > 50) {
-        prevSlide();
-    }
-});
-
-function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
-}
-
-function nextSlide() {
-    if (currentIndex < 3) {
-        currentIndex++;
-        updateCarousel();
-    }
-}
-
-function prevSlide() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-    }
+    setTimeout(() => {
+        intro.style.display = "none";
+        carouselContainer.classList.add("show");
+        document.body.style.overflow = "auto";
+    }, 800);
 }
 </script>
 
