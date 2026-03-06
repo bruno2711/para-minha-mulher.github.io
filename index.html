@@ -1,321 +1,335 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Jeniffer ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Jeniffer ❤️</title>
 
-<style>
+    <style>
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-overflow:hidden;
-}
+        body {
+            margin: 0;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            overflow: hidden;
+        }
 
-/* FUNDO ANIMADO */
+        /* FUNDO ANIMADO */
 
-.gradient-bg{
-background:linear-gradient(-45deg,#00f2fe,#4facfe,#6a85f1,#89f7fe);
-background-size:400% 400%;
-animation:gradientMove 12s ease infinite;
-}
+        .gradient-bg {
+            background: linear-gradient(-45deg, #00f2fe, #4facfe, #6a85f1, #89f7fe);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+        }
 
-@keyframes gradientMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%
+            }
 
-/* INTRO */
+            50% {
+                background-position: 100% 50%
+            }
 
-.intro{
-position:fixed;
-width:100%;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-box-sizing:border-box;
-color:white;
-transition:opacity .8s ease;
-}
+            100% {
+                background-position: 0% 50%
+            }
+        }
 
-.intro.fade-out{
-opacity:0;
-}
+        /* INTRO */
 
-.intro h1{
-font-size:32px;
-margin-bottom:20px;
-animation:glow 2.5s ease-in-out infinite alternate;
-}
+        .intro {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box;
+            color: white;
+            transition: opacity .8s ease;
+        }
 
-@keyframes glow{
-from{ text-shadow:0 0 5px #fff,0 0 10px #4facfe;}
-to{ text-shadow:0 0 20px #fff,0 0 40px #00f2fe;}
-}
+        .intro.fade-out {
+            opacity: 0;
+        }
 
-.intro p{
-font-size:18px;
-max-width:320px;
-line-height:1.6;
-margin-bottom:30px;
-}
+        .intro h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            animation: glow 2.5s ease-in-out infinite alternate;
+        }
 
-.intro button{
-padding:12px 25px;
-border:none;
-border-radius:25px;
-background:white;
-color:#4facfe;
-font-weight:bold;
-font-size:16px;
-}
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #4facfe;
+            }
 
-/* CARROSSEL */
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 40px #00f2fe;
+            }
+        }
 
-.carousel-container{
-display:none;
-height:100vh;
-}
+        .intro p {
+            font-size: 18px;
+            max-width: 320px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
-.carousel{
-display:flex;
-width:100%;
-height:100vh;
-transition:transform 1s ease;
-}
+        .intro button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            color: #4facfe;
+            font-weight: bold;
+            font-size: 16px;
+        }
 
-.slide{
-min-width:100%;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
-box-sizing:border-box;
-text-align:center;
-color:white;
-}
+        /* CARROSSEL */
 
-.slide img{
-width:90%;
-max-width:350px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
-margin-bottom:20px;
-}
+        .carousel-container {
+            display: none;
+            height: 100vh;
+        }
 
-.slide p{
-font-size:20px;
-max-width:320px;
-}
+        .carousel {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            transition: transform 1s ease;
+        }
 
-/* TELA FINAL */
+        .slide {
+            min-width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+        }
 
-.final-text{
-font-size:40px;
-font-weight:bold;
-margin-bottom:20px;
-animation:fadeLove 2s ease forwards;
-opacity:0;
-}
+        .slide img {
+            width: 90%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            margin-bottom: 20px;
+        }
 
-@keyframes fadeLove{
-to{
-opacity:1;
-transform:scale(1.1);
-}
-}
+        .slide p {
+            font-size: 20px;
+            max-width: 320px;
+        }
 
-.typewriter{
-font-size:22px;
-max-width:320px;
-min-height:60px;
-}
+        /* TELA FINAL */
 
-/* CORAÇÕES */
+        .final-text {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeLove 2s ease forwards;
+            opacity: 0;
+        }
 
-.heart{
-position:fixed;
-bottom:-20px;
-font-size:24px;
-animation:floatUp 6s linear infinite;
-opacity:.8;
-}
+        @keyframes fadeLove {
+            to {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
 
-@keyframes floatUp{
+        .typewriter {
+            font-size: 22px;
+            max-width: 320px;
+            min-height: 60px;
+        }
 
-0%{
-transform:translateY(0) scale(1);
-opacity:1;
-}
+        /* CORAÇÕES */
 
-100%{
-transform:translateY(-120vh) scale(1.8);
-opacity:0;
-}
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 24px;
+            animation: floatUp 6s linear infinite;
+            opacity: .8;
+        }
 
-}
+        @keyframes floatUp {
 
-</style>
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) scale(1.8);
+                opacity: 0;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
 
-<audio id="music" loop>
-<source src="musica.mp3" type="audio/mp3">
-</audio>
+    <audio id="music" loop>
+        <source src="musica.mp3" type="audio/mp3">
+    </audio>
 
-<div class="intro gradient-bg" id="intro">
+    <div class="intro gradient-bg" id="intro">
 
-<h1>Jeniffer 💙</h1>
+        <h1>Jeniffer 💙</h1>
 
-<p>
-Hoje é Dia das Mulheres…<br><br>
-Mas essa surpresa não é para qualquer mulher.<br><br>
-É para a mulher que mudou a minha vida.
-</p>
+        <p>
+            Hoje é Dia das Mulheres…<br><br>
+            Mas essa surpresa não é para qualquer mulher.<br><br>
+            É para a mulher que mudou a minha vida.
+        </p>
 
-<button onclick="start()">Abrir minha surpresa ✨</button>
+        <button onclick="start()">Abrir minha surpresa ✨</button>
 
-</div>
+    </div>
 
-<div class="carousel-container gradient-bg" id="carouselContainer">
+    <div class="carousel-container gradient-bg" id="carouselContainer">
 
-<div class="carousel" id="carousel">
+        <div class="carousel" id="carousel">
 
-<div class="slide">
-<img src="foto1.jpg">
-<p>Você ilumina qualquer lugar só por existir ✨</p>
-</div>
+            <div class="slide">
+                <img src="foto1.jpg">
+                <p>Você ilumina qualquer lugar só por existir ✨</p>
+            </div>
 
-<div class="slide">
-<img src="foto2.jpg">
-<p>Com você, cada momento vira memória favorita 💙</p>
-</div>
+            <div class="slide">
+                <img src="foto2.jpg">
+                <p>Com você, cada momento vira memória favorita 💙</p>
+            </div>
 
-<div class="slide">
-<img src="foto3.jpg">
-<p>Seu sorriso é o meu lugar seguro 🌸</p>
-</div>
+            <div class="slide">
+                <img src="foto3.jpg">
+                <p>Seu sorriso é o meu lugar seguro 🌸</p>
+            </div>
 
-<div class="slide">
-<img src="foto4.jpg">
-<p>Feliz Dia das Mulheres, minha mulher incrível 💜</p>
-</div>
+            <div class="slide">
+                <img src="foto4.jpg">
+                <p>Feliz Dia das Mulheres, minha mulher incrível 💜</p>
+            </div>
 
-<div class="slide">
+            <div class="slide">
 
-<div class="final-text">Jeniffer, eu te amo ❤️</div>
+                <div class="final-text">Jeniffer, eu te amo ❤️</div>
 
-<div class="typewriter" id="typewriter"></div>
+                <div class="typewriter" id="typewriter"></div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<script>
+    <script>
 
-let index=0
-let slides
-let finalStarted=false
+        let index = 0
+        let slides
+        let finalStarted = false
 
-function start(){
+        function start() {
 
-const intro=document.getElementById("intro")
-const carouselContainer=document.getElementById("carouselContainer")
-const music=document.getElementById("music")
+            const intro = document.getElementById("intro")
+            const carouselContainer = document.getElementById("carouselContainer")
+            const music = document.getElementById("music")
 
-music.currentTime = 20
-music.play()
+            music.currentTime = 20
+            music.play()
 
-intro.classList.add("fade-out")
+            intro.classList.add("fade-out")
 
-setTimeout(()=>{
+            setTimeout(() => {
 
-intro.style.display="none"
-carouselContainer.style.display="block"
+                intro.style.display = "none"
+                carouselContainer.style.display = "block"
 
-slides=document.querySelectorAll(".slide")
+                slides = document.querySelectorAll(".slide")
 
-setInterval(nextSlide,3000)
+                setInterval(nextSlide, 3000)
 
-},800)
+            }, 800)
 
-}
+        }
 
-function nextSlide(){
+        function nextSlide() {
 
-if(index < slides.length-1){
-index++
-}
+            if (index < slides.length - 1) {
+                index++
+            }
 
-const carousel=document.getElementById("carousel")
-carousel.style.transform=`translateX(-${index*100}%)`
+            const carousel = document.getElementById("carousel")
+            carousel.style.transform = `translateX(-${index * 100}%)`
 
-if(index===slides.length-1 && !finalStarted){
+            if (index === slides.length - 1 && !finalStarted) {
 
-finalStarted=true
-startHearts()
-typeWriter()
+                finalStarted = true
+                startHearts()
+                typeWriter()
 
-}
+            }
 
-}
+        }
 
-function startHearts(){
+        function startHearts() {
 
-setInterval(()=>{
+            setInterval(() => {
 
-const heart=document.createElement("div")
-heart.className="heart"
-heart.innerHTML="❤️"
+                const heart = document.createElement("div")
+                heart.className = "heart"
+                heart.innerHTML = "❤️"
 
-heart.style.left=Math.random()*100+"%"
-heart.style.fontSize=(20+Math.random()*30)+"px"
+                heart.style.left = Math.random() * 100 + "%"
+                heart.style.fontSize = (20 + Math.random() * 30) + "px"
 
-document.body.appendChild(heart)
+                document.body.appendChild(heart)
 
-setTimeout(()=>{
-heart.remove()
-},6000)
+                setTimeout(() => {
+                    heart.remove()
+                }, 6000)
 
-},300)
+            }, 300)
 
-}
+        }
 
-function typeWriter(){
+        function typeWriter() {
 
-const text="Obrigado por existir na minha vida. Você faz tudo ser mais bonito."
-const element=document.getElementById("typewriter")
+            const text = "Obrigado por existir na minha vida. Você faz tudo ser mais bonito."
+            const element = document.getElementById("typewriter")
 
-let i=0
+            let i = 0
 
-function typing(){
+            function typing() {
 
-if(i<text.length){
+                if (i < text.length) {
 
-element.innerHTML+=text.charAt(i)
-i++
-setTimeout(typing,60)
+                    element.innerHTML += text.charAt(i)
+                    i++
+                    setTimeout(typing, 60)
 
-}
+                }
 
-}
+            }
 
-typing()
+            typing()
 
-}
+        }
 
-</script>
+    </script>
 
 </body>
+
 </html>
